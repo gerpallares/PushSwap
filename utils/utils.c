@@ -6,13 +6,13 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:48:24 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/04 11:21:31 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/12 09:59:38 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_free(char **str)
+void	ft_free_all(char **str)
 {
 	int	i;
 

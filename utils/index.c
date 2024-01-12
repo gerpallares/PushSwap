@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:01:03 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/04 11:06:18 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:26:06 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	index_stack(t_list **stack)
 	int		i;
 
 	i = 0;
-	head = get_next_line(stack);
+	head = get_next_min(stack);
 	while (head)
 	{
 		head->index = i++;
@@ -58,7 +58,7 @@ void	print_list(t_list *head)
 	tmp = head;
 	while (tmp != NULL)
 	{
-		ft_putnbr_fd(tmp->value, 1);
-		ft_putendl_fd("", 1);
+		ft_printf("%i\n", tmp->value);
+		tmp = tmp->next;
 	}
 }

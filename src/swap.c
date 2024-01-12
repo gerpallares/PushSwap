@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:40:50 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/08 10:06:58 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/12 10:19:27 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	sb(t_list **stack_b)
 
 int	ss(t_list **stack_a, t_list **stack_b)
 {
-	if ((ft_lstsize(stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
+	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
 		return (-1);
 	swap(stack_a);
 	swap(stack_b);

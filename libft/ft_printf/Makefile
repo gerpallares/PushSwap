@@ -8,7 +8,7 @@ OBJECTS = $(SOURCES:.c=.o)
 INCLUDES = ft_printf.h
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -MMD
+CFLAGS = -Wall -Wextra -Werror -MMD -g
 DEPS = $(SOURCES:.c=.d)
 
 $(NAME): $(OBJECTS)

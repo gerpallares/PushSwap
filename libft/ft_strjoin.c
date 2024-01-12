@@ -6,13 +6,13 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 09:48:26 by gpallare          #+#    #+#             */
-/*   Updated: 2023/09/26 14:20:58 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:37:16 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*ret;
 	size_t	len;

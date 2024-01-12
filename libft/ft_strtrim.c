@@ -6,13 +6,13 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:08:20 by gpallare          #+#    #+#             */
-/*   Updated: 2023/09/26 13:28:03 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:38:26 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_check_char(char c, char const *set)
+static int	ft_check_char(char c, char *set)
 {
 	while (*set)
 		if (c == *set++)
@@ -20,7 +20,7 @@ static int	ft_check_char(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	char	*ret;
 	char	*start;

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_sort.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 11:20:55 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/12 09:59:13 by gpallare         ###   ########.fr       */
+/*   Created: 2023/09/27 09:46:21 by gpallare          #+#    #+#             */
+/*   Updated: 2024/01/12 11:37:27 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	simple_sort(t_list **stack_a, t_list **stack_b)
+t_list	*ft_lstnew(int content)
 {
-	int	size;
+	t_list	*node;
 
-	if (is_sorted(stack_a) || ft_lstsize(*stack_a) == 0 
-		|| ft_lstsize(*stack_a) == 1)
-		return ;
-	size = ft_lstsize(*stack_a);
-	if (size == 2)
-		sa(stack_a);
-	else if (size == 3)
-		check_sort_3(stack_a);
-	else if (size == 4)
-		sort_4(stack_a, stack_b);
-	else if (size == 5)
-		sort_5(stack_a, stack_b);
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->value = content;
+	node->index = -1;
+	node->next = NULL;
+	return (node);
 }

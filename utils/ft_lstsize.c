@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_sort.c                                      :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 11:20:55 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/12 09:59:13 by gpallare         ###   ########.fr       */
+/*   Created: 2023/09/27 10:54:15 by gpallare          #+#    #+#             */
+/*   Updated: 2024/01/12 10:26:50 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	simple_sort(t_list **stack_a, t_list **stack_b)
+int	ft_lstsize(t_list *lst)
 {
-	int	size;
+	size_t	i;
+	t_list	*tmp;
 
-	if (is_sorted(stack_a) || ft_lstsize(*stack_a) == 0 
-		|| ft_lstsize(*stack_a) == 1)
-		return ;
-	size = ft_lstsize(*stack_a);
-	if (size == 2)
-		sa(stack_a);
-	else if (size == 3)
-		check_sort_3(stack_a);
-	else if (size == 4)
-		sort_4(stack_a, stack_b);
-	else if (size == 5)
-		sort_5(stack_a, stack_b);
+	tmp = lst;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }

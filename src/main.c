@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:39:06 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/08 11:45:55 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:27:06 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	init_stack(t_list **stack, int ac, char **av)
 	}
 	index_stack(stack);
 	if (ac == 2)
-		ft_free(avs);
+		ft_free_all(avs);
 }
 
 static void	sort_stack(t_list **stack_a, t_list **stack_b)
@@ -55,8 +55,6 @@ int	main(int ac, char **av)
 	ft_check_args(ac, av);
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
-	*stack_a = NULL;
-	*stack_b = NULL;
 	init_stack(stack_a, ac, av);
 	if (is_sorted(stack_a))
 	{
@@ -65,6 +63,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	sort_stack(stack_a, stack_b);
+	print_list(*stack_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

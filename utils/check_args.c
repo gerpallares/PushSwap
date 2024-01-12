@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:09:37 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/04 11:35:18 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:57:04 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_isnum(char *num)
 	int	i;
 
 	i = 0;
-	if (num[0] == ' ')
+	if (num[0] == ' ' || num[0] == '-')
 		i++;
 	while (num[i])
 	{
@@ -66,5 +66,5 @@ void	ft_check_args(int ac, char **av)
 		i++;
 	}
 	if (ac == 2)
-		ft_free(avs);
+		ft_free_all(avs);
 }

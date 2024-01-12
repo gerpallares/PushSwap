@@ -6,13 +6,13 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 11:57:22 by gpallare          #+#    #+#             */
-/*   Updated: 2023/09/28 14:54:35 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:13:40 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_token_len(const char *s, char c)
+static size_t	ft_token_len(char *s, char c)
 {
 	size_t	matrix;
 
@@ -31,7 +31,7 @@ static size_t	ft_token_len(const char *s, char c)
 	return (matrix);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**matrix;
 	size_t	i;
