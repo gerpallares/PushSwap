@@ -29,6 +29,7 @@ LIBFT_SRC := $(LIBFT)ft_atoi.c $(LIBFT)ft_bzero.c $(LIBFT)ft_isalnum.c $(LIBFT)f
 		$(LIBFT)ft_printf/ft_putnbr.c $(LIBFT)ft_printf/ft_putstr.c $(LIBFT)get_next_line.c \
 		$(LIBFT)get_next_line_utils.c
 
+
 LIBFT_OBJS := $(LIBFT_SRC:.c=.o)
 
 .SILENT:
@@ -45,12 +46,12 @@ $(NAME): $(OBJS) Makefile $(INCLUDES) $(LIBFT_OBJS)
 	@echo "\033[0;32m [OK] \033[0m	\033[0;33m Compiled\033[0m"
 
 clean: 
-	rm -f src/*.o utils/*.o src/*.d utils/*.d
+	rm -f $(OBJS) $(DEPS)
 	make clean -C $(LIBFT)
 	@echo "\033[0;32m [OK] \033[0m	\033[0;33m All Clean\033[0m"
 
 fclean:
-	rm -f src/*.o utils/*.o src/*.d utils/*.d
+	rm -f $(OBJS) $(DEPS)
 	make fclean -C $(LIBFT)
 	rm -f $(NAME)
 	@echo "\033[0;32m [OK] \033[0m	\033[0;33m All Extremely Clean\033[0m"

@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:39:06 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/12 12:27:06 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/19 12:50:59 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (-1);
-	ft_check_args(ac, av);
+	if (ft_check_args(ac, av))
+		return (1);
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	init_stack(stack_a, ac, av);

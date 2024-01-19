@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:43:50 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/12 12:25:15 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:45:23 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_list
 
 // Util funcs
 void	print_list(t_list *head);
-void	ft_check_args(int ac, char **av);
+int		ft_check_args(int ac, char **av);
 int		is_sorted(t_list **stack);
 int		get_distance(t_list **stack, int index);
 void	make_top(t_list **stack, int distance);
