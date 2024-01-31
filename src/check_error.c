@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:44:55 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/31 10:46:29 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:42:53 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	check_non_numeric(int argc, char **argv)
 	{
 		if (argv[i][j] == '\0')
 			return (1);
-		while (argv[i][j] != '\0') 
+		while (argv[i][j] != '\0')
 		{
 			if (argv[i][j] == '-' || argv[i][j] == '+')
 				j++;
@@ -88,4 +88,4 @@ int	check_init_errors(int argc, char **argv)
 	if (out_of_int_range(argc, argv) == 1)
 		ft_exit_error();
 	return (0);
-}	
+}

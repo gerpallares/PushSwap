@@ -16,10 +16,11 @@ INCLUDES := includes/push_swap.h
 
 .SILENT:
 
-all: $(NAME)
+all: 
+	make -C $(LIBFT)
+	make $(NAME)
 
 $(NAME): $(OBJS) Makefile $(INCLUDES)
-	make -C $(LIBFT) > /dev/null
 	$(CC) $(CFLAGS) $(OBJS) -L $(LIBFT) -lft -o $(NAME)
 	@echo "\033[0;32m [OK] \033[0m	\033[0;33m All Compiled\033[0m"
 

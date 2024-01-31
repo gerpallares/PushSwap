@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:57:12 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/31 10:58:33 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:42:31 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static int	get_max_bits(t_stack *stack)
 	}
 	return (max_bits);
 }
-
 
 void	ft_radix_sort_stackb(t_stack **stack_a, t_stack **stack_b, int bit_pos)
 {
