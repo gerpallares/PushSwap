@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:43:50 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/19 11:45:23 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:50:36 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,60 +16,54 @@
 # include "../libft/libft.h"
 # include "../libft/ft_printf/ft_printf.h"
 # include <stdio.h>
+# include <stdbool.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 // Stack struct
-typedef struct s_list
+typedef struct s_stack
 {
-	int				value;
+	int				val;
 	int				index;
-	struct s_list	*next;
-}			t_list;
+	bool			has_index;
+	struct s_stack	*next;
+}	t_stack;
 
-// Util funcs
-void	print_list(t_list *head);
-int		ft_check_args(int ac, char **av);
-int		is_sorted(t_list **stack);
-int		get_distance(t_list **stack, int index);
-void	make_top(t_list **stack, int distance);
-void	free_stack(t_list **stack);
-void	ft_free_all(char **str);
+/* push_swap.c */
+int		main(int argc, char **argv);
+t_stack	*create_new_node(int val);
+/* check_init_errors.c */
+int		check_init_errors(int argc, char **argv);
+/* atol.c */
+long	ft_atol(char *str);
+/* list_utils1.c */
+void	ft_exit_error(void);
+t_stack	*create_new_node(int val);
+t_stack	*last_node(t_stack *top);
+t_stack	*second_last_node(t_stack *top);
+int		ft_list_size(t_stack *stack);
+/* list_utils2.c */
+t_stack	*get_max(t_stack *stack);
+t_stack	*get_min(t_stack *stack);
+bool	check_if_ascending(t_stack *stack);
+bool	check_if_descending(t_stack *stack);
+/* operations1.c */
+void	node_swap(t_stack **top);
+void	rotate(t_stack **top);
+void	rev_rotate(t_stack **top);
+void	push_to(t_stack **top_1, t_stack **top_2, char list);
+void	move(void (*operation)(t_stack**), t_stack **stack, char list);
+/* operations2.c */
+void	ss(t_stack **stack_a, t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+/* small_sort.c */
+void	ft_sort_3(t_stack **stack_a);
+void	ft_sort_4_5(t_stack **stack_a, t_stack **stack_b);
+/* big_sort.c */
+void	get_index(t_stack **first_node, int size);
+void	ft_radix_sort_stackb(t_stack **stack_a, t_stack **stack_b, int bit_pos);
+void	ft_big_sort_radix(t_stack **stack_a, t_stack **stack_b);
 
-// Algorithm funcs
-int		swap(t_list **stack);
-int		push(t_list **stack, t_list **stack_from);
-void	radix_sort(t_list **stack_a, t_list **stack_b);
-void	simple_sort(t_list **stack_a, t_list **stack_b);
-void	index_stack(t_list **stack);
-void	check_sort_3(t_list **stack_a);
-void	sort_4(t_list **stack_a, t_list **stack_b);
-void	sort_5(t_list **stack_a, t_list **stack_b);
-
-// Instruction funcs
-int		rotate(t_list **stack);
-int		rrotate(t_list **stack);
-
-int		sa(t_list **stack_a);
-int		sb(t_list **stack_b);
-int		ss(t_list **stack_a, t_list **stack_b);
-int		pa(t_list **stack_a, t_list **stack_b);
-int		pb(t_list **stack_b, t_list **stack_a);
-int		ra(t_list **stack_a);
-int		rb(t_list **stack_b);
-int		rr(t_list **stack_a, t_list **stack_b);
-int		rra(t_list **stack_a);
-int		rrb(t_list **stack_b);
-int		rrr(t_list **stack_a, t_list **stack_b);
-
-// List of functions
-t_list	*ft_lstnew(int content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-//void	ft_lstdelone(t_list *lst, void (*del)(void *));
-//void	ft_lstclear(t_list **lst, void (*del)(void *));
-//void	ft_lstiter(t_list *lst, void (*f)(void *));
-//t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

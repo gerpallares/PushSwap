@@ -5,67 +5,85 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 11:39:06 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/19 12:50:59 by gpallare         ###   ########.fr       */
+/*   Created: 2024/01/31 10:02:24 by gpallare          #+#    #+#             */
+/*   Updated: 2024/01/31 10:53:47 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	init_stack(t_list **stack, int ac, char **av)
+static void	free_nodes(t_stack **list)
 {
-	t_list	*new;
-	char	**avs;
+	t_stack	*tmp;
+
+	while (*list)
+	{
+		tmp = *list;
+		*list = (*list)->next;
+		free(tmp);
+	}
+	*list = NULL;
+}
+
+static void	fill_stack(t_stack **head, int val)
+{
+	t_stack	*last;
+	t_stack	*new_node;
+
+	new_node = create_new_node(val);
+	if (!new_node)
+	{
+		free_nodes(head);
+		return ;
+	}
+	if (*head == NULL)
+	{
+		*head = new_node;
+		return ;
+	}
+	last = *head;
+	while (last->next != NULL)
+	{
+		last = last->next;
+	}
+	last->next = new_node;
+}
+
+/* direct stack to corresponding sort */
+void	push_swap(t_stack **stack_a, t_stack **stack_b)
+{
+	if (ft_list_size(*stack_a) == 2)
+		move(node_swap, stack_a, 'a');
+	else if (ft_list_size(*stack_a) == 3)
+		ft_sort_3(stack_a);
+	else if (ft_list_size(*stack_a) <= 5)
+		ft_sort_4_5(stack_a, stack_b);
+	else if (ft_list_size(*stack_a) > 5)
+	{
+		get_index(stack_a, ft_list_size(*stack_a));
+		ft_big_sort_radix(stack_a, stack_b);
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	int		i;
 
-	i = 0;
-	if (ac == 2)
-		avs = ft_split(av[1], ' ');
-	else
+	stack_a = NULL;
+	stack_b = NULL;
+	if (argc <= 1)
+		return (0);
+	check_init_errors(argc, argv);
+	i = 1;
+	while (i < argc)
 	{
-		i = 1;
-		avs = av;
-	}
-	while (avs[i])
-	{
-		new = ft_lstnew(ft_atoi(avs[i]));
-		ft_lstadd_back(stack, new);
+		fill_stack(&stack_a, ft_atoi(argv[i]));
 		i++;
 	}
-	index_stack(stack);
-	if (ac == 2)
-		ft_free_all(avs);
-}
-
-static void	sort_stack(t_list **stack_a, t_list **stack_b)
-{
-	if (ft_lstsize(*stack_a) <= 5)
-		simple_sort(stack_a, stack_b);
-	else
-		radix_sort(stack_a, stack_b);
-}
-
-int	main(int ac, char **av)
-{
-	t_list	**stack_a;
-	t_list	**stack_b;
-
-	if (ac < 2)
-		return (-1);
-	if (ft_check_args(ac, av))
-		return (1);
-	stack_a = (t_list **)malloc(sizeof(t_list));
-	stack_b = (t_list **)malloc(sizeof(t_list));
-	init_stack(stack_a, ac, av);
-	if (is_sorted(stack_a))
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
-		return (0);
-	}
-	sort_stack(stack_a, stack_b);
-	print_list(*stack_a);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
+	if (check_if_ascending(stack_a) == false)
+		push_swap(&stack_a, &stack_b);
+	free_nodes(&stack_a);
+	free(stack_a);
 }

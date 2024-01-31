@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 10:18:14 by gpallare          #+#    #+#             */
-/*   Updated: 2023/12/27 12:10:25 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:56:24 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strchr(const char *str, int d)
 		return (NULL);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	count;
 
@@ -68,7 +68,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (r);
 }
 
-char	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	char	*mem;
 	size_t	char_size;

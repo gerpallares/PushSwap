@@ -1,22 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 11:56:07 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/12 10:11:38 by gpallare         ###   ########.fr       */
+/*   Created: 2024/01/31 10:43:36 by gpallare          #+#    #+#             */
+/*   Updated: 2024/01/31 10:44:28 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+long	ft_atol(char *str)
 {
-	while (lst)
+	int		i;
+	int		sign;
+	long	nb;
+
+	i = 0;
+	sign = 1;
+	nb = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		f(lst->value);
-		lst = lst->next;
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
+	while (str[i])
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			ft_exit_error();
+		nb = nb * 10;
+		nb = nb + (str[i] - '0');
+		i++;
+	}
+	return (nb * sign);
 }

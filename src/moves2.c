@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   moves2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 11:39:46 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/19 12:37:08 by gpallare         ###   ########.fr       */
+/*   Created: 2024/01/31 10:50:54 by gpallare          #+#    #+#             */
+/*   Updated: 2024/01/31 10:52:32 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+// Swap operation in both stacks
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	node_swap(stack_a);
+	node_swap(stack_b);
+	ft_printf("ss\n");
+}
+
+// Rotate operation in both stacks
+void	rr(t_stack **stack_a, t_stack **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
+}
+
+// Reverse rotate operation in both stacks
+void	rrr(t_stack **stack_a, t_stack **stack_b)
+{
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
+	ft_printf("rrr\n");
 }
