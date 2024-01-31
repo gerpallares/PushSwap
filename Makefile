@@ -17,7 +17,7 @@ INCLUDES := includes/push_swap.h
 .SILENT:
 
 all: 
-	make -C $(LIBFT)
+	make -C $(LIBFT) > /dev/null
 	make $(NAME)
 
 $(NAME): $(OBJS) Makefile $(INCLUDES)
@@ -35,7 +35,7 @@ clean:
 
 fclean:
 	rm -f $(OBJS) $(DEPS)
-	make fclean -C $(LIBFT)
+	make fclean -C $(LIBFT) > /dev/null
 	rm -f $(NAME)
 	@echo "\033[0;32m [OK] \033[0m	\033[0;33m All Extremely Clean\033[0m"
 

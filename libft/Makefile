@@ -22,7 +22,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -MMD -g
 
 all: $(NAME)
-	make -C ft_printf/
+	make -C ft_printf/ > /dev/null
 
 $(NAME): $(OBJECTS) Makefile $(INCLUDES)
 	$(AR) -rcs $@ $(OBJECTS)
@@ -31,11 +31,11 @@ $(NAME): $(OBJECTS) Makefile $(INCLUDES)
 	$(CC) $(CFLAGS) -I ./ -c $< -o $@
 
 clean:
-	make clean -C ft_printf/
+	make clean -C ft_printf/ > /dev/null
 	rm -f *.o $(OBJECTS) *.d
 
 fclean: clean
-	make clean -C ft_printf/
+	make clean -C ft_printf/ > /dev/null
 	rm -f *.o *.d $(NAME) libft.h.gch
 
 re: fclean all
