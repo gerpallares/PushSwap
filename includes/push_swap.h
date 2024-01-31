@@ -6,7 +6,7 @@
 /*   By: gpallare <gpallare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:43:50 by gpallare          #+#    #+#             */
-/*   Updated: 2024/01/31 10:50:36 by gpallare         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:23:17 by gpallare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ void	ft_sort_4_5(t_stack **stack_a, t_stack **stack_b);
 void	get_index(t_stack **first_node, int size);
 void	ft_radix_sort_stackb(t_stack **stack_a, t_stack **stack_b, int bit_pos);
 void	ft_big_sort_radix(t_stack **stack_a, t_stack **stack_b);
-
 
 #endif

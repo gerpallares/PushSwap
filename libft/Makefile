@@ -35,7 +35,7 @@ clean:
 	rm -f *.o $(OBJECTS) *.d
 
 fclean: clean
-	make clean -C ft_printf/ > /dev/null
+	make fclean -C ft_printf/ > /dev/null
 	rm -f *.o *.d $(NAME) libft.h.gch
 
 re: fclean all
